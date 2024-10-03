@@ -1,6 +1,6 @@
 {
-  "name": "object-path",
-  "version": "1.0.0",
+  "name": "typesafe-deep-paths",
+  "version": "1.0.1",
   "description": "A TypeScript utility package to safely access and modify deeply nested properties within objects using typed string paths.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,11 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/besotti/object-path.git"
+    "url": "https://github.com/besotti/typesafe-deep-paths.git"
   },
   "keywords": [
     "typescript",
     "object-path",
+    "deep-paths",
+    "typesafe-deep-paths",
     "utility",
     "nested properties",
     "autocompletion",

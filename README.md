@@ -1,4 +1,4 @@
-# object-path
+# typesafe-deep-paths
 
 A TypeScript utility package to safely access and modify deeply nested properties within objects using typed string paths. Provides type-safe path autocompletion for known paths while allowing fallback values for paths that may not exist.
 
@@ -12,7 +12,7 @@ A TypeScript utility package to safely access and modify deeply nested propertie
 ## Installation
 
 ```bash
-npm install object-path
+npm install typesafe-deep-paths
 ```
 
 ## Usage
