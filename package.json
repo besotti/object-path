@@ -1,0 +1,40 @@
+{
+  "name": "object-path",
+  "version": "1.0.0",
+  "description": "A TypeScript utility package to safely access and modify deeply nested properties within objects using typed string paths.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/besotti/object-path.git"
+  },
+  "keywords": [
+    "typescript",
+    "object-path",
+    "utility",
+    "nested properties",
+    "autocompletion",
+    "path access",
+    "set path",
+    "get path"
+  ],
+  "author": "Benedikt Sottong <benediktsommer@aol.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.2",
+    "eslint": "^8",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.30.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.8.0"
+  }
+}
