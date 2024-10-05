@@ -4,6 +4,9 @@
   "description": "A TypeScript utility package to safely access and modify deeply nested properties within objects using typed string paths.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "jest",
