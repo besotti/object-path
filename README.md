@@ -19,7 +19,7 @@ npm install typesafe-deep-paths
 
 ### `getPath`
 
-The `getPath` function allows you to retrieve the value of a deeply nested property in an object based on a string path. If the path doesn't exist, you can provide a fallback value.
+The `getPath` function allows you to retrieve the value of a deeply nested property in an object based on a string path. If the path doesn't exist, you can provide a fallback value. It also supports retrieving values from arrays, returning multiple values if the path leads to an array of items.
 
 #### Syntax:
 
@@ -35,15 +35,31 @@ getPath<T, P extends Path<T> | string, F>(obj: T, path: P, defaultValue?: F): P 
 
 ```typescript
 const data = {
-  user: {
-    profile: {
-      name: 'Alice',
-      address: {
-        street: 'Main St',
-        city: 'Somewhere',
-      },
+    user: {
+        profile: {
+            name: 'Alice',
+            address: {
+                street: 'Main St',
+                city: 'Somewhere',
+            },
+        },
+        subProfiles: [
+            {
+                name: 'John',
+                address: {
+                    street: 'Elm St',
+                    city: 'Somewhere else',
+                },
+            },
+            {
+                name: 'Robb',
+                address: {
+                    street: 'Second St',
+                    city: 'Another Place',
+                },
+            },
+        ],
     },
-  },
 };
 
 // Accessing a known path - returns the correct value
@@ -54,6 +70,12 @@ const zipCode = getPath(data, 'user.profile.address.zipCode', '00000');  // '000
 
 // Using fallback with unknown path
 const age = getPath(data, 'user.profile.age', 30);  // 30 (default since 'age' is missing)
+
+// Accessing multiple entries in an array - returns an array of values
+const cities = getPath(data, 'user.subProfiles.address.city');  // ['Somewhere else', 'Another Place']
+
+// Accessing a property that exists only once in an array - returns a single value
+const postcode = getPath(data, 'user.subProfiles.address.postcode');  // '00000' (or your default value if not present)
 ```
 
 ### `setPath`
@@ -93,7 +115,3 @@ console.log(data.user.profile.contact.email);  // 'alice@example.com'
 ## TypeScript Support
 
 The package uses TypeScript's advanced types to provide autocompletion and type checking for known object paths. When accessing a known path, TypeScript will suggest the valid nested keys and check for correct types. For unknown paths, you can use fallback values to ensure safe access.
-
-### `Path<T>`
-
-The utility type `Path<T>` is used internally to extract and represent all possible string paths from an object type `T`. It enables autocompletion for nested paths.
